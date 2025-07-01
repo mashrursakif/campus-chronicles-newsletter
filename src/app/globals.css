@@ -26,3 +26,32 @@ body {
   /* color: var(--foreground); */
   /* background: url('/background.jpg') center/cover no-repeat fixed; */
 }
+
+.text-primary {
+  color: var(--color-amber-900);
+}
+
+.text-secondary {
+  color: var(--color-lime-950);
+}
+
+.bg-primary {
+  background-color: var(--color-amber-900);
+
+  &.hover-bg:hover {
+    background-color: #6d2d06;
+  }
+}
+
+.bg-secondary {
+  background-color: var(--color-amber-50);
+
+  &.hover-bg:hover {
+    background-color: #efebdc;
+  }
+}
+
+.bg-grad {
+  /* background: linear-gradient(45deg, #009688, #8bc34a); */
+  background-color: #aed581;
+}

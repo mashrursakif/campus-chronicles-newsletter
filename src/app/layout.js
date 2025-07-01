@@ -32,23 +32,28 @@ export default function RootLayout({ children }) {
     <html lang='en'>
       <body
         // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        className={`${fontClass.variable} antialiased bg-amber-50`}
+        className={`${fontClass.variable} antialiased`}
       >
-        <div className='max-w-xl mx-auto border-b-2 border-amber-900 z-50 flex items-center justify-around p-6'>
-          <div>
-            <Link className='text-xl font-bold text-amber-950' href='/'>
-              Newsletters
-            </Link>
+        <div className='bg-grad'>
+          <div className='max-w-xl mx-auto border-b-2 border-amber-900 z-50 flex items-center justify-around p-6'>
+            <div>
+              <Link
+                className='text-xl font-bold text-primary'
+                href='/#newsletter-list'
+              >
+                Newsletters
+              </Link>
+            </div>
+
+            <div>
+              <Link className='text-xl font-bold text-primary' href='/about'>
+                About
+              </Link>
+            </div>
           </div>
 
-          <div>
-            <Link className='text-xl font-bold text-amber-950' href='/about'>
-              About
-            </Link>
-          </div>
+          <div className='min-h-screen'>{children}</div>
         </div>
-
-        <div className='max-w-6xl mx-auto p-4 min-h-screen'>{children}</div>
       </body>
     </html>
   );
