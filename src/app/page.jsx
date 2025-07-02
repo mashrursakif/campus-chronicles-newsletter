@@ -6,6 +6,7 @@ import axios from 'axios';
 import NewsLetters from './components/Newsletters';
 import Link from 'next/link';
 import Image from 'next/image';
+import Header from './components/Header';
 
 // url = `https://www.googleapis.com/drive/v3/files?q=%27${YOUR_FOLDER_ID}%27+in+parents&key=${YOUR_API_KEY}&fields=files(id,name,description)`
 
@@ -50,9 +51,11 @@ export default async function Home() {
   const latestEdition = data.files.at(-1);
 
   return (
-    <div>
-      <div className='bg-transparent'>
-        <div className='max-w-6xl mx-auto flex items-center justify-center flex-col py-20 px-6 max-w-xl text-center'>
+    <div className='flex flex-col md:flex-row overflow-auto md:overflow-hidden'>
+      <div className='bg-grad flex-1 h-screen flex flex-col justify-start items-center'>
+        <Header />
+
+        <div className='flex items-center justify-center flex-col py-20 px-10 max-w-xl text-center'>
           <h1 className='text-7xl font-bold mb-8 text-primary'>
             Campus Chronicles
           </h1>
@@ -86,47 +89,15 @@ export default async function Home() {
             </Link>
           </div>
         </div>
-
-        {/* <div className='max-w-3xl mx-auto bg-amber-100 p-8 rounded-lg mb-12 flex items-center gap-6'>
-          <div className='max-w-md'>
-            <h2 className='text-primary text-2xl font-bold mb-4'>
-              Latest Edition
-            </h2>
-
-            <p className='text-secondary text-lg mb-6'>
-              Nunc ultrices feugiat dolor sed condimentum. Sed facilisis, magna
-              vitae pellentesque luctus, diam lorem viverra turpis, sit amet
-              tincidunt leo nisl eu risus
-            </p>
-
-            <Link
-              href={latestEdition.webViewLink}
-              className='bg-primary text-white px-4 py-3 rounded-xl'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              <button>Read Now</button>
-            </Link>
-          </div>
-
-          <div>
-            <Image
-              src={latestEdition.thumbnailLink}
-              fallbackSrc='/placeholder.webp'
-              alt='Latest Edition'
-              width={100}
-              height={150}
-              className='rounded-lg ml-6'
-            />
-          </div>
-        </div> */}
       </div>
 
-      <NewsLetters newsletters={data.files} />
+      <NewsLetters
+        newsletters={data.files}
+        className='flex-1 h-screen overflow-auto'
+      />
     </div>
   );
 }
 
+// Example format:
 // Newsletter Week 14 | Many cats were adopted by students this week! | 24th July 2025.pdf
-
-// https://www.googleapis.com/drive/v3/files?q=undefined+in+parents+and+mimeType%3D%27application%2Fpdf%27&fields=files(id,+name,+mimeType,+webViewLink) 403 (Forbidden)

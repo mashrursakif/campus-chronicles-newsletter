@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { useMemo, useState } from 'react';
 // import ImageWithFallback from './ImageWithFallback';
 
-export default function Newsletter({ newsletters }) {
+export default function Newsletter({ newsletters, className }) {
   const [query, setQuery] = useState('');
 
   const fuse = new Fuse(newsletters, {
@@ -20,7 +20,9 @@ export default function Newsletter({ newsletters }) {
   );
 
   return (
-    <div className='bg-secondary py-12 px-6 flex flex-col items-center min-h-[50vh]'>
+    <div
+      className={`bg-secondary py-12 px-6 lg:px-10 flex flex-col items-center min-h-[50vh] ${className}`}
+    >
       <div className='max-w-4xl'>
         <div className='mb-8 flex flex-col items-center'>
           <h2
@@ -44,7 +46,7 @@ export default function Newsletter({ newsletters }) {
             No Newsletters Found
           </p>
         ) : (
-          <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+          <div className='grid grid-cols-1 xl:grid-cols-2 gap-6'>
             {results?.map((newsletter) => (
               <Link
                 key={newsletter.id}
