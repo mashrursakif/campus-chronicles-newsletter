@@ -55,7 +55,7 @@ export default function Newsletters({ newsletters, className }) {
                 rel='noopener noreferrer'
                 className='max-w-[480px]'
               >
-                <div className='bg-lime-50 flex gap-4 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200'>
+                <div className='bg-transparent flex gap-4 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200'>
                   {/* <ImageWithFallback
                   src={newsletter.thumbnailLink}
                   // fallback='/placeholder.webp'

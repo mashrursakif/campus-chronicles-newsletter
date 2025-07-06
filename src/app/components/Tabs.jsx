@@ -6,9 +6,14 @@ import About from './About';
 import Newsletters from './Newsletters';
 
 export default function Tabs({ newsletters }) {
-  const [tab, setTab] = useState(window.location.hash || '#newsletters');
+  const [tab, setTab] = useState('#newsletters');
 
-  console.log(tab);
+  // useEffect(() => {
+  //   if (window.location.hash) {
+  //     setTab(window.location.hash);
+  //   }
+  // }, []);
+
   return (
     <>
       <div className='w-full max-w-xl mx-auto border-amber-900 z-50 flex items-center'>
