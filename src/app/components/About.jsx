@@ -10,16 +10,13 @@ export default function About() {
         </h2>
 
         <p className='mx-auto text-xl text-secondary max-w-2xl text-center mb-12'>
-          Campus chronicles is a weekly newsletter, published every sunday. It
-          brings information of previous, on-going, and upcoming events. The
-          timeline is maintained as follows: 1. The week count is maintained
-          according to the weeks the school remains open; the weeks during
-          breaks are not counted. 2. As it is run by students, during
-          examinations, the publishing is temporarily paused and this is
-          informed through a notice. 3. The Edition number is maintained through
-          the weeks that the newsletter is published. However, notices don't
-          count as editions, although the week in which a notice is published is
-          counted.
+          Campus chronicles is weekly newsletter for Paramount School and
+          College. It brings information of previous, on-going, and upcoming
+          events. New editions are published every sunday. As it is run by
+          students, during examinations, the publishing is temporarily paused.
+          Any important changes or updates are announced via notices. For any
+          issues or reports, contact us at:{' '}
+          <b>campuschroniclesnewsletter@gmail.com</b>
         </p>
 
         <div className='mb-16'>

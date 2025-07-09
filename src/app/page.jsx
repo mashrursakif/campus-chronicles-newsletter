@@ -16,18 +16,16 @@ export default async function Home() {
       <div className='bg-grad flex-1 flex flex-col justify-start items-center w-auto md:w-[50vw]'>
         {/* <Header /> */}
 
-        <div className='flex items-center justify-center flex-col py-24 px-10 max-w-xl text-center md:mt-24'>
+        <div className='flex items-center justify-center flex-col py-24 px-10 max-w-screen sm:max-w-xl text-center md:mt-24'>
           <h1 className='text-7xl font-bold mb-8 text-primary'>
             Campus Chronicles
           </h1>
 
-          <p className='text-lg text-secondary mb-12'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id
-            pretium neque. Nunc ultrices feugiat dolor sed condimentum. Sed
-            facilisis, magna vitae pellentesque luctus, diam lorem viverra
-            turpis, sit amet tincidunt leo nisl eu risus. Maecenas scelerisque
-            fermentum sapien at ultrices. Ut libero ligula, eleifend non gravida
-            ut, vehicula eget magna
+          <p className='text-lg text-secondary mb-10'>
+            Welcome to Campus Chronicles! Here you can find all the latest
+            newsletters. Be up to date with important news and notices. Access
+            entire catalog of past editions. And much more. You can read our
+            latest edition right now below:
           </p>
 
           <div className='flex gap-6'>
