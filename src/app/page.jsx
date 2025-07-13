@@ -6,7 +6,9 @@ function orderData(data) {
     const dataArray = newsletter.name.replace(/\.pdf$/i, '').split('_');
 
     const title = dataArray.at(0).trim();
-    const description = dataArray?.at(1)?.trim() || '';
+    let description = '';
+    if (dataArray.length == 3) description = dataArray?.at(1)?.trim() || '';
+
     const date = dataArray?.at(-1)?.trim() || '';
     const weekNumber = parseFloat(title.match(/Week\s+(\d+)/i)[1] || '0');
 
@@ -35,7 +37,7 @@ export default async function Home() {
   const data = await res.json();
 
   const newsletters = orderData(data);
-  const latestEdition = newsletters.at(-1);
+  const latestEdition = newsletters.at(0);
 
   return (
     <div className='md:min-h-screen flex flex-col md:flex-row overflow-visible md:overflow-hidden'>
