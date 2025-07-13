@@ -9,7 +9,7 @@ export default function Newsletters({ newsletters, className }) {
   const [query, setQuery] = useState('');
 
   const fuse = new Fuse(newsletters, {
-    keys: ['name', 'description'],
+    keys: ['name', 'description', 'date'],
     threshold: 0.4,
   });
 

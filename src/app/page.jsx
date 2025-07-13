@@ -1,15 +1,41 @@
-import NewsLetters from './components/Newsletters';
 import Link from 'next/link';
 import Tabs from './components/Tabs';
-import Header from './components/Header';
+
+function orderData(data) {
+  const newsletters = data.files.map((newsletter) => {
+    const dataArray = newsletter.name.replace(/\.pdf$/i, '').split('_');
+
+    const title = dataArray.at(0).trim();
+    const description = dataArray?.at(1)?.trim() || '';
+    const date = dataArray?.at(-1)?.trim() || '';
+    const weekNumber = parseFloat(title.match(/Week\s+(\d+)/i)[1] || '0');
+
+    return {
+      id: newsletter.id,
+      title,
+      description,
+      date,
+      thumbnailLink: newsletter.thumbnailLink,
+      webViewLink: newsletter.webViewLink,
+      weekNumber,
+    };
+  });
+
+  const orderedNewsletters = newsletters.sort(
+    (a, b) => b.weekNumber - a.weekNumber
+  );
+  return orderedNewsletters;
+}
 
 export default async function Home() {
   const res = await fetch(
-    `https://www.googleapis.com/drive/v3/files?q=%27${process.env.GOOGLE_DRIVE_FOLDER_ID}%27+in+parents&key=${process.env.GOOGLE_DRIVE_API_KEY}&fields=files(id,name,description,webViewLink,thumbnailLink)`
+    `https://www.googleapis.com/drive/v3/files?q=%27${process.env.GOOGLE_DRIVE_FOLDER_ID}%27+in+parents&key=${process.env.GOOGLE_DRIVE_API_KEY}&fields=files(id,name,description,webViewLink,thumbnailLink)`,
+    { cache: 'no-store' }
   );
   const data = await res.json();
 
-  const latestEdition = data.files.at(-1);
+  const newsletters = orderData(data);
+  const latestEdition = newsletters.at(-1);
 
   return (
     <div className='md:min-h-screen flex flex-col md:flex-row overflow-visible md:overflow-hidden'>
@@ -51,11 +77,8 @@ export default async function Home() {
       </div>
 
       <div className='bg-secondary md:h-screen md:overflow-y-auto md:overflow-x-hidden min-h-[600px] flex-1'>
-        <Tabs newsletters={data.files} />
+        <Tabs newsletters={newsletters} />
       </div>
     </div>
   );
 }
-
-// Example format:
-// Newsletter Week 14 | Many cats were adopted by students this week! | 24th July 2025.pdf

@@ -2,8 +2,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Newsletter({ newsletter }) {
-  const dataArray = newsletter.name.split('_');
-
   return (
     <Link
       key={newsletter.id}
@@ -12,7 +10,7 @@ export default function Newsletter({ newsletter }) {
       rel='noopener noreferrer'
       className='max-w-[480px]'
     >
-      <div className='bg-transparent border-1 border-amber-950 flex gap-4 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200'>
+      <div className='bg-transparent h-full border-1 border-amber-950 flex gap-4 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200'>
         {/* <ImageWithFallback
             src={newsletter.thumbnailLink}
             // fallback='/placeholder.webp'
@@ -25,7 +23,7 @@ export default function Newsletter({ newsletter }) {
 
         <Image
           src={newsletter.thumbnailLink}
-          alt={dataArray.at(0).trim()}
+          alt={newsletter.title}
           // onError={(e) => (e.srcset = 'placeholder.webp')}
           width={100}
           height={125}
@@ -33,17 +31,11 @@ export default function Newsletter({ newsletter }) {
           className='rounded-lg w-[100] h-fit object-cover'
         />
         <div>
-          <h3 className='text-xl text-primary mb-4'>
-            {dataArray.at(0).trim()}
-          </h3>
+          <h3 className='text-xl text-primary mb-4'>{newsletter.title}</h3>
 
-          <p className='text-sm text-gray-800 mb-6'>
-            {dataArray?.at(1)?.trim() || ''}
-          </p>
+          <p className='text-sm text-gray-800 mb-6'>{newsletter.description}</p>
 
-          <p className='font-bold text-sm text-black'>
-            {dataArray?.at(-1)?.trim() || ''}
-          </p>
+          <p className='font-bold text-sm text-black'>{newsletter.date}</p>
         </div>
       </div>
     </Link>
