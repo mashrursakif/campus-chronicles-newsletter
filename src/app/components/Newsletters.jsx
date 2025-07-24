@@ -45,7 +45,7 @@ export default function Newsletters({ newsletters, className }) {
             No Newsletters Found
           </p>
         ) : (
-          <div className='grid grid-cols-1 xl:grid-cols-2 gap-6'>
+          <div className='grid grid-cols-1 2xl:grid-cols-2 gap-6'>
             {results?.map((newsletter) => (
               <Newsletter key={newsletter.id} newsletter={newsletter} />
             ))}
