@@ -10,7 +10,7 @@ export default function Newsletter({ newsletter }) {
       rel='noopener noreferrer'
       className='max-w-[480px]'
     >
-      <div className='bg-transparent h-full border-1 border-amber-950 flex gap-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200'>
+      <div className='bg-transparent h-full border-1 border-amber-950 flex gap-4 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200'>
         {/* <ImageWithFallback
             src={newsletter.thumbnailLink}
             // fallback='/placeholder.webp'
@@ -31,7 +31,9 @@ export default function Newsletter({ newsletter }) {
           // unoptimized={true}
           className='rounded-lg w-[128px] h-full object-cover'
         />
-        <div className='px-2 py-4'>
+        <div
+        // className='px-2 py-4'
+        >
           <h3 className='text-xl text-primary mb-4'>{newsletter.title}</h3>
 
           <p className='text-sm text-gray-800 mb-6'>{newsletter.description}</p>
