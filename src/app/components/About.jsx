@@ -15,8 +15,7 @@ export default function About() {
 					events. New editions are published every sunday. As it is run by
 					students, during examinations, the publishing is temporarily paused.
 					Any important changes or updates are announced via notices. For any
-					issues or reports, contact us at:{' '}
-					<b>campuschroniclesnewsletter@gmail.com</b>
+					issues or reports, contact us at: <b>campuschronicles42@gmail.com</b>
 				</p>
 
 				<div className='mb-16'>
