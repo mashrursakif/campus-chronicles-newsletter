@@ -42,8 +42,6 @@ export default async function Home() {
 	return (
 		<div className='md:min-h-screen flex flex-col md:flex-row overflow-visible md:overflow-hidden'>
 			<div className='bg-grad flex-1 flex flex-col justify-start items-center w-auto md:w-[50vw]'>
-				{/* <Header /> */}
-
 				<div className='flex items-center justify-center flex-col py-24 px-10 max-w-screen sm:max-w-xl text-center md:mt-24'>
 					<h1 className='text-7xl font-bold mb-8 text-primary'>
 						Campus Chronicles
@@ -65,15 +63,6 @@ export default async function Home() {
 						>
 							Read Latest Edition
 						</Link>
-
-						{/* <Link
-              href='/about'
-              className='bg-secondary text-amber-950 px-4 py-3 rounded-xl hover-bg transition duration-200'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              Learn More About Us
-            </Link> */}
 					</div>
 				</div>
 			</div>
